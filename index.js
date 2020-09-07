@@ -208,7 +208,7 @@ rdf.Graph.prototype.add = function (quad) {
   var i = rdf.Graph.index(quad)
   
   if (i.g === '__proto__' || i.g === 'constructor' || i.g === 'prototype') {
-    return this._gspo;
+    return this;
   }
 
   this._gspo[i.g] = this._gspo[i.g] || {}
