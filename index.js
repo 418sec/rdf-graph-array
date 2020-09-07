@@ -206,6 +206,10 @@ inherits(rdf.Graph, rdf.AbstractGraph)
 
 rdf.Graph.prototype.add = function (quad) {
   var i = rdf.Graph.index(quad)
+  
+  if (i.g === '__proto__' || i.g === 'constructor' || i.g === 'prototype') {
+    return this._gspo;
+  }
 
   this._gspo[i.g] = this._gspo[i.g] || {}
   this._gspo[i.g][i.s] = this._gspo[i.g][i.s] || {}
